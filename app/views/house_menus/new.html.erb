@@ -1,0 +1,25 @@
+<% content_for :top_menu do %>
+  <%= link_to "Добавить", new_house_menu_path %><br />
+  <%= link_to "Назад", house_menus_path %>
+<% end %>
+
+<% form_for(@house_menu) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title, "Заголовок" %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :link, "Ссылка" %><br />
+    <%= f.text_field :link %>
+  </p>
+  <p>
+    <%= f.label :position, "Позиция" %><br />
+    <%= f.text_field :position %>
+  </p>
+  <p>
+    <%= f.submit "Создать" %>
+  </p>
+<% end %>
+

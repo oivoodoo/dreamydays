@@ -1,0 +1,2 @@
+module HouseMenusHelper
+end

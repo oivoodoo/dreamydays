@@ -1,0 +1,12 @@
+<% content_for :top_menu do %>
+  <%= render :partial => 'houses/templates/top_menu' %>
+  <%= link_to "Назад", houses_path %>
+<% end %>
+
+<h1>Добавить дом.</h1>
+<% form_for(@house, :html => { :multipart => true } ) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "houses/form", :locals => {:f => f} %>
+  <p><%= submit_tag "Создать" %></p>
+<% end %>
+

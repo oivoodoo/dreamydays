@@ -1,0 +1,2 @@
+<%= render :partial => "base_page/templates/top_menu" %>
+

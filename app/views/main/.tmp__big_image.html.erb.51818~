@@ -1,0 +1,11 @@
+<% if not big_image.nil? and not big_image.photo.nil? %>
+	<div class="<%= frame_class %> search-image-bottom">
+		<% shadow_frame do %>
+			<div class="big-images">
+				<%= image_tag(big_image.photo.url(:medium)) %>
+			</div>
+		<% end %>
+		<div class="clearer"></div>
+		<h2 class="search-result-bottom"><a href="<%= url_for(:controller => :main, :action => :show_house, :id => house_id) %>"><%= house_title %><span style="color: #999999; font-size: 12px;">>></span></a></h2>
+	</div>
+<% end %>

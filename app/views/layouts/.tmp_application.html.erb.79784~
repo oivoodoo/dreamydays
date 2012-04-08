@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>DreamyDays</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<%= stylesheet_link_tag 'css/main' %>
+<!--[if lte IE 7]>
+<%= stylesheet_link_tag 'css/patches/patch_main' %>
+<![endif]-->
+<%= yield :head %>
+<%= javascript_include_tag "Select" %>
+</head>
+<body>
+	<div id="page_margins">
+		<div id="page">
+			<%= render :partial => "templates/header" %>
+			<%= render :partial => "templates/navigation", :locals => { :current_menu => @current_menu } %>
+			<div id="main">
+				<%= yield %>
+				<%= yield :admin %>
+			</div>
+			<%= render :partial => "templates/footer" %>
+		</div>
+	</div>
+</body>
+</html>

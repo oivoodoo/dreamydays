@@ -1,0 +1,47 @@
+<% content_for :head do %>
+	<%= javascript_include_tag 'jquery' %>
+	<%= javascript_include_tag 'jquery.preload' %>
+
+	<script type="text/javascript">
+		function initialize()
+		{
+			$.preload('.big-images img', {
+				placeholder:"<%= image_path('big_missing.gif') %>",
+				notFound:"<%= image_path('big_missing.gif') %>"
+			});
+		}
+		$(document).ready(initialize);
+	</script>
+<% end %>
+
+<% unless @houses.blank? %>
+    <div id="content">
+    	  <div><%= page.body %></div>
+        <div>
+            <% if @houses.size != 0 then %>
+                <p class="search-header-title">
+                    <%= link_to all_link, :controller => :main, :action => action_name %>
+                </p>
+                <div class="clearer"></div>
+                <% iterator = 0 %>
+                <% for i in 0...@houses.size %>
+                    <% if @houses[i].photos.size > 0 %>
+                        <% value = render_big_image(@houses[i], iterator) %>
+                        <% if value != -1 %>
+                            <%= value %>
+                            <% iterator += 1 %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <p>По вашему запросу ничего не найдено</p>
+            <% end %>
+        </div>
+        <div class="clearer">&nbsp;</div>
+        <%= will_paginate @houses, :update => "content" %>
+    </div>
+<% else %>
+    <div id="content">
+  	  <div><%= page.body %></div>
+    </div>
+<% end %>

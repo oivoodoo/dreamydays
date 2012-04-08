@@ -1,0 +1,47 @@
+<div id="nav"> 
+	<a id="navigation" name="navigation"></a>
+	<div id="nav_main">
+		<ul>
+			<li "<%= if current_menu == 0 then 'id = \'current\'' end %>">
+				<%= link_to("Главная", :controller => :main, :action => :index) %>
+			</li>
+			<li "<%= if current_menu == 1 then 'id = \'current\'' end %>">
+				<%= link_to("Каталог", :controller => :main, :action => :catalog) %>
+			</li>
+			<li "<%= if current_menu == 2 then 'id = \'current\'' end %>">
+				<%= link_to("Наши услуги", :controller => :main, :action => :services) %>
+			</li>
+			<li "<%= if current_menu == 3 then 'id = \'current\'' end %>">
+				<%= link_to("О Самуи", :controller => :main, :action => :about) %>
+			</li>
+			<li "<%= if current_menu == 4 then 'id = \'current\'' end %>">
+				<%= link_to("Путешествие с детьми", :controller => :main, :action => :travelling) %>
+			</li>
+			<li "<%= if current_menu == 5 then 'id = \'current\'' end %>">
+				<%= link_to("Контакты", :controller => :main, :action => :contacts) %>
+			</li>
+		</ul>
+	</div>
+	<div class="clearer"></div>
+</div>
+<div style="width: 100%; background-color: white;">
+	<div style="height: 1px; border-top: 1px solid #999999; margin: 0 20px; background-color: white;"></div>
+	<% if current_menu == 0 then %>
+		<%= image_tag("top-button.png", :class => "top-button-0") %>
+	<% end %>
+	<% if current_menu == 1 then %>
+		<%= image_tag("top-button.png", :class => "top-button-1") %>
+	<% end %>
+	<% if current_menu == 2 then %>
+		<%= image_tag("top-button.png", :class => "top-button-2") %>
+	<% end %>
+	<% if current_menu == 3 then %>
+		<%= image_tag("top-button.png", :class => "top-button-3") %>
+	<% end %>
+	<% if current_menu == 4 then %>
+		<%= image_tag("top-button.png", :class => "top-button-4") %>
+	<% end %>
+	<% if current_menu == 5 then %>
+		<%= image_tag("top-button.png", :class => "top-button-5") %>
+	<% end %>
+</div>

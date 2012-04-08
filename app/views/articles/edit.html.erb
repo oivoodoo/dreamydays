@@ -1,0 +1,11 @@
+<% content_for :top_menu do %>
+  <%= render :partial => 'articles/templates/top_menu' %>
+  <%= link_to "Назад", articles_path %>
+<% end %>
+
+<h1>Редактировать статью</h1>
+<% form_for(@article, :url => {:controller => "articles", :action => "update"}, :html => {:method => :put}) do |f| %>
+  <%= render :partial => 'base_page/form', :locals => {:f => f} %>
+  <p><%= f.submit "Update" %></p>
+<% end %>
+

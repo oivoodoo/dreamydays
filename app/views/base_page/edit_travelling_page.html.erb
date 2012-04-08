@@ -1,0 +1,8 @@
+<%= render :partial => "base_page/templates/top_menu" %>
+
+<h1>Редактировать Путешествия.</h1>
+<% form_for(@travelling_page, :url => {:action => :update_travelling_page, :id => @travelling_page.id}) do |f| %>
+  <%= render :partial => "base_page/form", :locals => {:f => f, :page_name => :travelling_page, :page_action => :travelling } %>
+  <%= submit_tag("Обновить") %>
+<% end %>
+

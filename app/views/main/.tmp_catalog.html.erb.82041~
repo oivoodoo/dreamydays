@@ -1,0 +1,64 @@
+<% content_for :head do %>
+	<%= javascript_include_tag 'jquery' %>
+	<%= javascript_include_tag 'jquery.preload' %>
+	
+	<script type="text/javascript">
+		function initialize()
+		{
+			$.preload('.big-images img', {
+				placeholder:"<%= image_path('big_missing.gif') %>",
+				notFound:"<%= image_path('big_missing.gif') %>"
+			});
+		}
+		$(document).ready(initialize);
+	</script>
+<% end %>
+
+<div id="main">
+	<% form_for :query, @query, :url => { :action => :catalog }, :id => "main_form" do |f| %>
+	<div class="line">
+		<p class="main-header">Поиск по каталогу</p>
+		<div class="search-controls">
+			<span class="forselect search-select">
+				<%= f.select("cost", @search.prices.collect {|p| [p.title, p.title] }, {:include_blank => 'Стоимость' }, :class => "search-catalog-input") %>
+			</span>
+			<span class="forselect search-select">
+				<%= f.select("location", @search.locations.find(:all).collect {|p| [p.title, p.title] }, {:include_blank => 'Расположение' }, :class => "search-catalog-input") %>
+			</span>
+			<span class="forselect search-select">
+				<%= f.select("number", @search.numbers.collect {|p| [p.title, p.title] }, {:include_blank => 'Количество мест', :class => "search-catalog-input" }) %>
+			</span>	
+			<span class="search-top-button">
+				<input type="submit" id="submit-button-hidden" class="hidden" />
+				<span>
+					<a href="#" onclick="var form = document.getElementById('submit-button-hidden'); form.click();">
+						<%= image_tag('search2.png') %>
+					</a>
+				</span>
+			</span>
+			<span class="search-comment">
+				сейчас в каталоге находится 24 виллы, 15 апартаментов и 31 бунгалс
+			</span>
+		</div>
+	</div>
+	<div id="content">
+		<div>
+			<% if @houses.size != 0 then %>
+				<p class="search-header-title">
+					<%= link_to "Все предложения", :controller => :main, :action => :catalog %>
+				</p>
+				<div class="clearer"></div>
+				<% for i in 0...@houses.size %>
+					<% if @houses[i].photos.size > 0 %>
+						<%= render_big_image(@houses[i], i) %>
+					<% end %>
+				<% end %>
+			<% else %>
+				<p>По вашему запросу ничего не найдено</p>
+			<% end %>
+		</div>
+		<div class="clearer">&nbsp;</div>
+		<%= will_paginate @houses, :update => "content" %>
+	</div>
+	<% end %>
+</div>

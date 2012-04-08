@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title><%= @title || "DreamyDays" %></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="description" content="Агентство Dreamy Days: семейный отдых на острове самуи. Поможем снять виллу или аппартаменты на море в Таиланде." />
+<meta name="keywords" content="Таиланд виллы, отдых с детьми, отдых с ребенком, Тайланд аренда, сниму виллу, самуи аренда, таиланд аренда, аренда тайланд, дом самуи, юг дом, путешествие с ребенком, купить дом в таиланде, купить аппартаменты самуи, семейный отдых, фрукты таиланд, погода таиланд, таиланд отдых, виллы, тайская еда, рестораны самуи, погода самуи, виза таиланд, отзыв таиланд"  />
+<%= stylesheet_link_tag 'css/main' %>
+<!--[if lte IE 7]>
+<%= stylesheet_link_tag 'css/patches/patch_main' %>
+<![endif]-->
+<%= yield :head %>
+</head>
+<body>
+	<div id="page_margins">
+		<div id="page">
+			<%= render :partial => "templates/header" %>
+			<%= render :partial => "templates/navigation", :locals => { :current_menu => @current_menu, :main_menus => @main_menus } %>
+			<div id="main">
+				<%= yield %>
+				<%= yield :admin %>
+			</div>
+			<%= render :partial => "templates/footer" %>
+		</div>
+	</div>
+</body>
+</html>

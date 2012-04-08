@@ -1,0 +1,37 @@
+<% content_for :top_menu do %>
+  <%= link_to "Назад", '/admin' %>
+<% end %>
+
+<div>
+  <table>
+    <tr>
+      <td>Дата запроса</td>
+      <td>Почта</td>
+      <td>Имя</td>
+      <td>Кол-во взрослых</td>
+      <td>Кол-во детей</td>
+      <td>Кол-во спален</td>
+      <td>Заезд</td>
+      <td>Выезд</td>
+      <td>Цена</td>
+      <td>Комментарии</td>
+      <td></td>
+    </tr> 
+    <% @contacts.each do |c| %>
+      <tr>
+        <td><%= c.created_at.strftime("%d/%m/%Y") %>
+        <td><%= c.email %></td>
+        <td><%= c.name %></td>
+        <td><%= c.number_adult %></td>
+        <td><%= c.number_children %></td>
+        <td><%= c.number_bedroom %></td>
+        <td><%= c.date1.strftime("%d/%m/%Y") %></td>
+        <td><%= c.date2.strftime("%d/%m/%Y") %></td>
+        <td><%= c.price %></td>
+        <td><%= c.comments %></td>
+        <td><%= link_to 'Удалить', admin_contact_path(c), :confirm => 'Вы действительно хотите удалить?', :method => :delete %></td>
+      </tr>	
+    <% end %>
+  </table>
+  <%= will_paginate(@contacts) %>
+</div>

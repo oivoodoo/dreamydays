@@ -1,0 +1,13 @@
+<% if @houses.size > 0 %>
+  <h1>Дома</h1>
+  <% @houses.each do |h| %>
+    <h2><%= link_to "#{image_tag(h.thumb.photo.url(:thumb))}", show_house_path(h, :house_type => h.house_type) %>&nbsp;<%= link_to h.title, show_house_path(h, :house_type => h.house_type) %></h2>
+  <% end %>
+<% end %>
+  
+<% if @articles.size > 0 %>
+  <h1>Статьи</h1>
+  <% @articles.each do |a| %>
+    <h2><%= link_to a.title, show_article_path(a) %></h2>
+  <% end %>
+<% end %>

@@ -1,0 +1,16 @@
+<% content_for :top_menu do %>
+  <%= link_to "Добавить", new_banner_path %><br />
+  <%= link_to 'Назад', banners_path %>
+<% end %>
+
+<h3>Добавить банер</h3>
+
+<% form_for(@banner, :html => { :multipart => true } ) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    Ссылка:
+    <%= f.text_field :url, :style => "width: 100%" %>
+  </p>
+  <p><%= f.file_field :banner %></p>
+  <p><%= f.submit 'Добавить' %></p>
+<% end %>

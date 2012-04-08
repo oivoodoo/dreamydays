@@ -1,0 +1,32 @@
+<% content_for :header do %>
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag :fckeditor %>
+<% end %>
+
+<%= render :partial => "base_page/templates/top_menu" %>
+
+<h1>Редактировать каталог.</h1>
+<p>
+  Ссылка на страницу:
+  <%= link_to "#{url_for( :only_path => false, :controller => :main, :action => :catalog )}", :controller => :main, :action => :catalog %>
+</p>
+<% form_for(@catalog_page, :url => {:controller => :catalog_page, :action => :do_edit_catalog_page, :id => @catalog_page.id}) do |f| %>
+  <p>
+    <%= f.label :title, "Заголовок" %><br />
+    <%= f.text_field :title, :style => "width: 100%" %>
+  </p>
+  <p>
+      <%= f.label :meta_keywords, "Мета слова(meta keywords):" %>
+  </p>
+  <p>
+    <%= f.text_area :meta_keywords, :rows => 5, :style => "width: 100%" %>
+  </p>
+  <p>
+      <%= f.label :meta_description, "Мета описание(meta description):" %>
+  </p>
+  <p>
+    <%= f.text_area :meta_description, :rows => 5, :style => "width: 100%" %>
+  </p>
+  <%= submit_tag("Обновить") %>
+<% end %>
+

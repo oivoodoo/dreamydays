@@ -1,0 +1,23 @@
+development:
+  adapter: mysql
+  host: 10.254.171.86
+  timeout: 5000
+  login: user_4186
+  password: 2yzz4u-k
+  database: db_1_4086
+
+test:
+  adapter: mysql
+  host: 10.254.171.86
+  timeout: 5000
+  login: user_4186
+  password: 2yzz4u-k
+  database: db_1_4086
+
+production:
+  adapter: mysql
+  host: 10.254.171.86
+  timeout: 5000
+  login: user_4186
+  password: 2yzz4u-k
+  database: db_1_4186

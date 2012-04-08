@@ -1,0 +1,14 @@
+<div id="main">
+	<h1>Добавить баннер.</h1>
+	<% form_for(@banner, :url => {:controller => :admin, :action => :do_add_banner}, :html => { :multipart => true}) do |f| %>
+		<p>
+			<%= f.label :url, "Ссылка" %>
+			<%= f.text_field :url %>
+		</p>
+		<%= f.file_field :banner %>
+		<p>
+			<%= submit_tag "Добавить" %>
+			<%= link_to "Назад", :controller => :admin, :action => :banners %>
+		</p>
+	<% end %>
+</div>

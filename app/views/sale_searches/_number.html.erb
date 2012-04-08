@@ -1,0 +1,12 @@
+<% fields_for "search[number_attributes][]", number do |number_form| %>
+  <div class="number">
+    <%= number_form.text_field :title, :index => nil %>
+    <% if number.new_record? then %>
+      <%= link_to_function "Удалить", "this.up('.number').remove()" %>
+    <% else %>
+      <%= link_to_function "Удалить", "mark_for_destroy_id(this, 'number')" %>
+      <%= number_form.hidden_field :id, :value => number.id, :index => nil %>
+    <% end %>
+    <%= number_form.hidden_field :should_destroy, :value => "0", :index => nil, :class => "should_destroy" %>
+  </div>
+<% end %>

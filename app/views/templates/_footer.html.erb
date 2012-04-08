@@ -1,0 +1,23 @@
+<div id="banner-image">
+	<% for banner in @banners %>
+		<span class="banner-link">
+			<a href="<%= banner.url %>">
+				<img src="<%= banner.banner.url %>" style="margin-bottom:-4px" />
+			</a>
+		</span>
+	<% end %>
+</div>
+<div id="footer" style="width: 100%">
+    <% unless @footer.content.blank? %>
+        <%= @footer.content %>
+    <% else %>
+        <div class="footer-left" style="width: 50%">
+            <a href="http://dreamydays.ru">© 2009 dreamydays.ru</a>
+        </div>
+        <div class="footer-right" style="width: 18%">
+            <p>сделано в <a href="http://365degrees.ru">365degrees</a></p>
+            <p class="footer-bottom-label">сделано с любовью</p>
+        </div>
+        <div class="clearer">&nbsp</div>
+    <% end %>
+</div>

@@ -1,0 +1,25 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'formtastic', 'formtastic_changes' %>
+  <%= stylesheet_link_tag('contacts') %>
+<% end %>
+
+<% semantic_form_for :contacts, :url => "/send_contacts" do |form| %>
+
+  <% form.inputs do %>
+    <%= form.input :name, :label => "Ваше имя", :required => true, :input_html => {:size => 10} %>
+    <%= form.input :email, :label => "Ваш мэйл", :required => true, :input_html => {:size => 10} %>
+    <%= form.input :number_adult, :label => "Количество взрослых", :required => false, :input_html => {:size => 10} %>
+    <%= form.input :number_children,  :label => "Количество детей", :required => false, :input_html => {:size => 10} %>
+    <%= form.input :number_bedroom,  :label => "Количество спален", :required => false, :input_html => {:size => 10} %>
+    <%= form.input :date1, :label => "Заезд на виллу", :required => false, :as => :date %>
+    <%= form.input :date2, :label => "Выезд с виллы", :required => false, :as => :date %>
+    <%= form.input :price, :label => "Цена за один день в USD", :required => false, :input_html => {:size => 10} %>
+    <%= form.input :comments, :label => "Комментарии и пожелания", :required => false, :as => :text, :input_html => {:rows => "7"} %>
+  <% end %>
+
+  <% form.buttons do %>
+    <%= form.commit_button "Отправить" %>
+  <% end %>
+
+<% end %>
+

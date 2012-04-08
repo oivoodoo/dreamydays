@@ -1,0 +1,9 @@
+<%= link_to 'Основные страницы', :controller => :base_page, :action => :index %><br />
+<%= link_to 'Статьи', :controller => :articles, :action => :index %><br />
+<%= link_to 'Дома', :controller => :houses, :action => :index %><br />
+<%= link_to 'Поиск', :controller => :searches, :action => :edit, :id => @search %><br />
+<%= link_to 'Меню', :controller => :main_menus, :action => :index %><br />
+<%= link_to 'Баннеры', :controller => :banners, :action => :index %><br />
+<%= link_to 'Шапка сайта', 'admin/header' %><br />
+<%= link_to 'Футер сайта', 'admin/footer' %><br />
+<%= link_to "Заказы", admin_contacts_path %>

@@ -1,0 +1,19 @@
+<% content_for :meta do %>
+  <%= render :partial => 'templates/meta', :object => @about_page %>
+<% end %>
+
+<div id="content">
+	<h2><%= h @about_page.title %></h2>	
+	<div>
+		<%= @about_page.body %>
+	</div>
+  <div>
+    <p><%= link_to "Аренда автомобилей на Самуи", "/1.pdf" %> </p>
+    <p><%= link_to "Предложение от Tamarind SPA", "/2.pdf" %></p>
+    <p><%= link_to "СПА на Самуи", "/3.pdf" %></p>
+    <p><%= link_to "Морские экскурсии на Самуи", "/4.pdf" %></p>
+    <p><%= link_to "Обзорная экскурсия по Самуи", "/5.pdf" %></p>
+    <p><%= link_to "Тур в Камбоджу на 3 дня", "/6.pdf" %></p>
+    <p><%= link_to "Тур в Камбоджу на 4 дня", "/7.pdf" %></p>
+  </div>
+</div>

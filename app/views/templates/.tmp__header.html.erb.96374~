@@ -1,0 +1,11 @@
+<div id="header">
+	<div>
+		<div style="float: right;">
+			<p class="header-pre-phone">офис в Москве<span class="header-phone">(495) 629 5131</span></p>
+		</div>
+		<div style="float: left;">
+			<h1 class="header-title">DreamyDays</h1>	
+		</div>
+		<div class="crearer"></div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<% fields_for "search[location_attributes][]", location do |location_form| %>
+  <div class="location">
+    <%= location_form.text_field :title, :index => nil %>
+    <% if location.new_record? then %>
+      <%= link_to_function "Удалить", "this.up('.location').remove()" %>
+    <% else %>
+      <%= link_to_function "Удалить", "mark_for_destroy_id(this, 'location')" %>
+      <%= location_form.hidden_field :id, :value => location.id, :index => nil %>
+    <% end %>
+    <%= location_form.hidden_field :should_destroy, :value => "0", :index => nil, :class => "should_destroy" %>
+  </div>
+<% end %>

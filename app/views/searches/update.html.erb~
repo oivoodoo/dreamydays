@@ -1,0 +1,4 @@
+<div id="main">
+	<h2>Поиск успешно обновлён</h2>
+	<%= link_to "Назад", :controller => :admin, :action => :index %>
+</div>

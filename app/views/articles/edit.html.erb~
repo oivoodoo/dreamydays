@@ -1,0 +1,26 @@
+<% content_for :head do %>
+	<%= javascript_include_tag :fckeditor %>
+<% end %>
+
+<% content_for :top_menu do %>
+  <%= render :partial => 'articles/templates/top_menu' %>
+  <%= link_to "Назад", articles_path %>
+<% end %>
+
+<h1>Редактировать статью</h1>
+
+<% form_for(@article) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <div>
+    <p><%= f.label :body, "Описание" %></p>
+    <%= fckeditor_textarea("article", "body", :toolbarSet => 'Simple', :width => '100%', :height => '400px') %>
+  </div>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+

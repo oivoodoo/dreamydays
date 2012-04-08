@@ -1,0 +1,11 @@
+<% content_for :top_menu do %>
+  <%= render :partial => 'articles/templates/top_menu' %>
+  <%= link_to "Назад", articles_path %>
+<% end %>
+
+<h1>Добавить страницу.</h1>
+<% form_for(@article) do |f| %>
+  <%= render :partial => 'base_page/form', :locals => {:f => f} %>
+  <p><%= f.submit "Добавить" %></p>
+<% end %>
+

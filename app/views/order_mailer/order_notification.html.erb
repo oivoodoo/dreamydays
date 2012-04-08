@@ -1,0 +1,12 @@
+<h3>Данные со страницы контакты:</h3>
+<br />
+<p>Имя: <%= @order[:name] %></p>
+<p>Email: <%= @order[:email] %></p>
+<p>Количество взрослых: <%= @order[:number_adult] %></p>
+<p>Количество детей: <%= @order[:number_children] %></p>
+<p>Количество спален: <%= @order[:number_bedroom] %></p>
+<p>Заезд на виллу: <%= "#{@order['date1(3i)']}.#{@order['date1(2i)']}.#{@order['date1(1i)']}" %></p>
+<p>Выезд с виллы: <%= "#{@order['date2(3i)']}.#{@order['date2(2i)']}.#{@order['date2(1i)']}" %></p>
+<p>Цена за один день в USD: <%= @order[:price] %></p>
+<p>Комментарии: <%= @order[:comments] %></p>
+

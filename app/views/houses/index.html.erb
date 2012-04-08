@@ -1,0 +1,10 @@
+<% content_for :top_menu do %>
+  <%= render :partial => 'houses/templates/top_menu' %>
+  <%= link_to "Назад", :controller => :admin, :action => :index %>
+<% end %>
+
+
+<div id="container">
+	<p><%= link_to "В раздел с арендой домов", index_rent_path %></p>
+	<p><%= link_to "В раздел с продажей домов", index_sale_path %></p>
+</div>

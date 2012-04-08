@@ -1,0 +1,21 @@
+<% content_for :head do %>
+	<%= javascript_include_tag :defaults %>
+<% end %>
+
+<% content_for :top_menu do %>
+  <%= link_to "Назад", houses_path %>
+<% end %>
+
+<% if @houses.size > 0 %>
+  <h1>Обновить позиции</h1>
+  <% form_tag(:controller => :position, :action => :set_positions) do |f| %>
+    <table>
+      <tbody>
+        <%= render :partial => "position", :collection => @houses %>
+      </tbody>
+    </table>
+    <%= submit_tag "Обновить" %>
+  <% end %>
+<% else %>
+  <p>Нет домов для редактирования.</p>
+<% end %>

@@ -1,0 +1,91 @@
+<% content_for :meta do %>
+  <%= render :partial => 'templates/meta', :object => @main_page %>
+<% end %>
+
+<% content_for :head do %>
+	<%= javascript_include_tag 'jquery' %>
+	<%= javascript_include_tag 'jquery.preload' %>
+	
+	<script type="text/javascript">
+		function initialize()
+		{
+			$.preload('#image-container img', {
+				placeholder:"<%= image_path('big_missing.gif') %>",
+				notFound:"<%= image_path('big_missing.gif') %>"
+			});
+		}
+		$(document).ready(initialize);
+	</script>
+<% end %>
+
+<div id="main">	
+	<div id="content">
+		<div id="content-column-1">
+			<div class="sub-content-1 no-border">
+				<h1><%= h @main_page.title %></h1>
+				<div>
+					<%= @main_page.body %>
+				</div>
+			</div>
+		</div>
+		<div id="content-column-2">
+			<% if not @main_photo.nil? then %>
+			<div id="big-image">
+				<% shadow_frame do %>
+					<div id="image-container" style="width: 405px; height: 307px;">
+						<center>
+							<% if not @main_photo.nil? then %>
+								<%= image_tag @main_photo.photo.url(:medium) %>
+							<% end %>
+						</center>
+					</div>
+				<% end %>
+			</div>
+			<div class="clearer" style="height: 1px;">&nbsp</div>
+			<% end %>
+			<div class="pre-search">
+				<% if not @house.nil? then %>
+					<h2>
+						<%= house_title_link(@house) %>
+					</h2>
+				<% end %>
+				<%= link_to "все предложения", :controller => :main, :action => :catalog %>
+			</div>
+			<div class="search-form">
+				<% form_for :query, @query, :url => { :action => :catalog }, :id => "main_form" do |f| %>
+				<p>Поиск по каталогу</p>
+				<div class="search-controls">
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<%= render_search_control_div(f, @search.prices, "cost", 'Cтоимость за день', "search-index-input")%>
+								</td>
+								<td>&nbsp</td>
+							</tr>
+							<tr>
+								<td>
+									<%= render_search_control_div_title(f, @search.locations, "location", 'Расположение', "search-index-input")%>
+								</td>
+								<td>
+									<input type="submit" id="submit-button-hidden" class="hidden" />
+									<span class="search-button">
+											<img src="<%= image_path('search.png') %>" onclick="var form = document.getElementById('submit-button-hidden'); form.click();" style="cursor: pointer;"/> 
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<%= render_search_control_div_title(f, @search.numbers, "number", 'Количество спален', "search-index-input")%>
+								</td>
+								<td>&nbsp</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<% end -%>
+			</div>
+		</div>
+		<div class="clearer">&nbsp;</div>
+	</div>
+</div>

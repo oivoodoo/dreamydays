@@ -1,0 +1,8 @@
+<%= render :partial => "base_page/templates/top_menu" %>
+
+<h1>Редактировать контакты.</h1>
+<% form_for(@contacts_page, :url => {:action => :update_contacts_page, :id => @contacts_page.id}) do |f| %>
+  <%= render :partial => "base_page/form", :locals => {:f => f, :page_name => :contacts_page, :page_action => :contacts } %>
+  <%= submit_tag("Обновить") %>
+<% end %>
+

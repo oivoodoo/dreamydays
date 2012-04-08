@@ -1,0 +1,4 @@
+<%= link_to "Добавить", :controller => :houses, :action => :new %><br />
+<%= link_to "Обновить позиции", :controller => :position, :action => :index %><br />
+<%= link_to "Меню", :controller => :house_menus, :action => :index %><br />
+

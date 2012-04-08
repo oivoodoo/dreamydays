@@ -1,0 +1,12 @@
+<% content_for :meta do %>
+  <%= render :partial => 'templates/meta', :object => @contacts_page %>
+<% end %>
+
+<div id="main">
+	<div id="content">
+		<h2><%= h @contacts_page.title %></h2>	
+		<div>
+			<%= @contacts_page.body %>
+		</div>
+	</div>
+</div>

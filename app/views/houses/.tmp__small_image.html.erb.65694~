@@ -1,0 +1,6 @@
+<% fields_for "house[photos_attributes][]", photo do |photo_form| %>
+	<div class="photo">
+		<%= image_tag(small_image.photo.url(:thumb)) %>
+		<%= link_to_function "Удалить", "this.up('.photo').remove()" %>
+	</div>
+<% end %>

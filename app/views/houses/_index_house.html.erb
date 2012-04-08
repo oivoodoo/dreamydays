@@ -1,0 +1,55 @@
+<div id="content-column-1">
+	<div class="sub-content-1">
+		<h1><%= house.title %></h1>
+		<h3 class="suggestion"><%= house.comment %></h3>
+		<div>
+			<%= house.text %>
+		</div>
+	</div>
+</div>
+<div id="content-column-2">
+	<div class="prices">
+		<table class="prices-table">
+			<thead>
+				<tr>
+					<td class="prices-head-title">Цены</td>
+					<td>за день</td>
+					<td>за неделю</td>
+					<td>за месяц</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="row-selected">
+					<td>
+						<p class="prices-title">Высокий сезон</p>
+						<p class="prices-comment"><%= house.high_duration_1 %></p>
+						<p class="prices-comment"><%= house.high_duration_2 %></p>
+					</td>
+					<td><%= house.high_cost_day %></td>
+					<td><%= house.high_cost_week %></td>
+					<td><%= house.high_cost_month %></td>
+				</tr>
+				<tr>
+					<td>
+						<p class="prices-title">Низкий сезон</p>
+						<p class="prices-comment"><%= house.low_duration_1 %></p>
+						<p class="prices-comment"><%= house.low_duration_2 %></p>
+					</td>
+					<td><%= house.low_cost_day %></td>
+					<td><%= house.low_cost_week %></td>
+					<td><%= house.low_cost_month %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="bottom-text">
+		<div>
+			<%= house.bottom_text %>
+		</div>
+	</div>
+</div>
+<p>Google Maps Ссылка:</p>
+<p>
+	<%= url_for(:controller => :main, :action => :show_google, :id => house.id, :only_path => false) %>
+</p>
+<div class="clearer">&nbsp;</div>

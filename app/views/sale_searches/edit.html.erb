@@ -1,0 +1,53 @@
+<% content_for :header do %>
+	<%= javascript_include_tag :defaults %>
+<% end %>
+
+<% content_for :top_menu do %>
+  <%= link_to "Назад", :controller => :admin, :action => :index %>
+<% end %>
+
+<% form_for (@search) do |f| %>
+	<h2>Расположение</h2>
+	<table>
+	<tr>
+	  <td>
+	    <div id="locations">
+		    <%= render :partial => "location", :collection => @search.locations %>
+	    </div>
+    </td>
+  </tr>
+  </table>
+	<%= link_to_function "Добавить расположение" do |page|
+		page.insert_html :bottom, "locations", :partial => "location", :object => Location.new
+	end %>
+	<br />
+	<h2>Цены</h2>
+	<table>
+  <tr>
+    <td>
+	    <div id="prices" style="float:left">
+		    <%= render :partial => "price", :collection => @search.prices %>
+	    </div>
+    </td>
+  </tr>
+  </table>
+	<%= link_to_function "Добавить цену" do |page|
+		page.insert_html :bottom, "prices", :partial => "price", :object => Price.new
+	end %>
+	<h2>Количество комнат</h2>
+	<table>
+  <tr>
+    <td>
+	    <div id="numbers" style="float:left">
+		    <%= render :partial => "number", :collection => @search.numbers %>
+	    </div>
+   </td>
+  </tr>
+  </table>
+	<%= link_to_function "Добавить количество комнат" do |page|
+		page.insert_html :bottom, "numbers", :partial => "number", :object => Number.new
+	end %>
+	<p>
+		<%= submit_tag "Обновить" %>
+	</p>
+<% end %>

@@ -1,0 +1,18 @@
+<div id="main">
+	<% for main_menu in @main_menus %>
+		<p>Заголовок</p>
+	    <p><%=h main_menu.title %></p>
+		<p>Ссылка</p>
+	    <p><%=h main_menu.link %></p>
+		Позиция:
+		<p><%= h main_menu.position %></p>
+		<div>
+		    <span><%= link_to 'Показать', main_menu %></span>
+		    <span><%= link_to 'Редактировать', edit_main_menu_path(main_menu) %></span>
+		    <span><%= link_to 'Удалить', main_menu, :confirm => 'Вы действительно хотите удалить?', :method => :delete %></span>
+		</div>
+	<% end %>
+	<p>
+		<%= link_to 'Добавить меню', new_main_menu_path %>
+	</p>
+</div>

@@ -1,0 +1,6 @@
+<% fields_for "house[photos_attributes][]", photo do |photo_form| %>
+	<div class="photo_file_upload">
+		<%= photo_form.file_field :photo %>
+		<%= hidden_field "photo_att", :photo_id, :value => photo.id %>
+	</div>
+<% end %>

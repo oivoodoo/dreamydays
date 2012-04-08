@@ -1,0 +1,5 @@
+<% unless @house.page_title.blank? %>
+	<% @page_title = @house.page_title %>
+<% end %>
+
+<%= render :partial => "show_house", :object => @house %>

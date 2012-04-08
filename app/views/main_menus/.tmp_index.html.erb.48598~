@@ -1,0 +1,22 @@
+<h1>Listing main_menus</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Link</th>
+  </tr>
+
+<% for main_menu in @main_menus %>
+  <tr>
+    <td><%=h main_menu.title %></td>
+    <td><%=h main_menu.link %></td>
+    <td><%= link_to 'Show', main_menu %></td>
+    <td><%= link_to 'Edit', edit_main_menu_path(main_menu) %></td>
+    <td><%= link_to 'Destroy', main_menu, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New main_menu', new_main_menu_path %>

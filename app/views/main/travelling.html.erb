@@ -1,0 +1,10 @@
+<% content_for :meta do %>
+  <%= render :partial => 'templates/meta', :object => @travelling_page %>
+<% end %>
+
+<div id="content">
+	<h2><%= h @travelling_page.title %></h2>	
+	<div>
+		<%= @travelling_page.body %>
+	</div>
+</div>

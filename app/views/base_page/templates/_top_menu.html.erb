@@ -1,0 +1,10 @@
+<% content_for :top_menu do %>
+  <%= link_to "Главная", :controller => :base_page, :action => :edit_main_page %>
+  <%= link_to "Каталог", :controller => :base_page, :action => :edit_catalog_page %>
+  <%= link_to "Каталог Продаж", :controller => :base_page, :action => :edit_sale_page %>  
+  <%= link_to "Услуги", :controller => :base_page, :action => :edit_services_page %>
+  <%= link_to "О самуи", :controller => :base_page, :action => :edit_about_page %>
+  <%= link_to "Путешествие с детьми", :controller => :base_page, :action => :edit_travelling_page %>
+  <%= link_to "Контакты", :controller => :base_page, :action => :edit_contacts_page %>
+  <%= link_to "Назад", :controller => :admin, :action => :index %>
+<% end %>

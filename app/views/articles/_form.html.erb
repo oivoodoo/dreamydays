@@ -1,0 +1,13 @@
+<%= f.error_messages %>
+<p>
+  <%= f.label :title, "Заголовок" %><br />
+  <%= f.text_field :title %>
+</p>
+<div>
+  <p><%= f.label :body, "Описание" %></p>
+  <%= f.text_area("body", :class => "mceEditor", :width => '100%', :height => '400px') %>
+</div>
+ <p>Meta description</p>
+<p><%= f.text_area(:meta_description, :rows => 5, :cols => 30) %></p>
+<p>Meta keywords</p>
+<p><%= f.text_area(:meta_keywords, :rows => 5, :cols => 30) %></p>

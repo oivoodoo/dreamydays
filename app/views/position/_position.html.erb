@@ -1,0 +1,21 @@
+<tr class="houses_position">
+  <% fields_for "houses_position[]", position do |form| %>
+    <td>
+      <% if position.photos.size > 0 then %>
+        <%= link_to "#{image_tag position.photos[0].photo.url(:thumb)}", 
+          :controller => :houses,
+          :action => :show,
+          :id => position.id %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to position.title, 
+          :controller => :houses,
+          :action => :show,
+          :id => position.id %>
+    </td>
+    <td>
+      <%= form.text_field :position %>
+    </td>
+  <% end %>
+</tr>

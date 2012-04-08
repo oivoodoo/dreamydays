@@ -1,0 +1,29 @@
+<% fields_for "house[editable_photos_attributes][]", editable_photo do |editable_photo_form| %>
+	<div class="editable_photo">
+		<table>
+			<tbody>
+				<tr>
+					<% if not editable_photo.new_record? then %>
+						<td>
+							<div style="margin-right: 10px;">
+								<%= image_tag(editable_photo.photo.url(:thumb)) %>
+							</div>
+						</td>
+					<% end %>
+					<td>	
+						<div class="editable_photo_file_upload">
+							<% if editable_photo.new_record? then %>
+								<%= editable_photo_form.file_field :photo, :index => nil %>
+								<%= link_to_function "Удалить", "this.up('.editable_photo').remove()" %>
+							<% else %>
+								<%= link_to_function "Удалить", "mark_for_destroy(this)" %>
+								<%= editable_photo_form.hidden_field :id, :value => editable_photo.id, :index => nil %>
+							<% end %>
+							<%= editable_photo_form.hidden_field :should_destroy, :value => "0", :index => nil, :class => "should_destroy" %>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<% end %>

@@ -1,0 +1,8 @@
+<%= render :partial => "base_page/templates/top_menu" %>
+
+<h1>Редактировать каталог.</h1>
+<% form_for(@sale_page, :url => {:action => :update_sale_page, :id => @sale_page.id}) do |f| %>
+  <%= render :partial => "base_page/form", :locals => {:f => f, :page_name => :sale_page, :page_action => :sale_catalog } %>
+  <%= submit_tag("Обновить") %>
+<% end %>
+

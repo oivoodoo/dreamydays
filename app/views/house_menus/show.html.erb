@@ -1,0 +1,13 @@
+<% content_for :top_menu do %>
+  <%= link_to "Добавить", new_house_menu_path %><br />
+  <%= link_to "Назад", house_menus_path %>
+<% end %>
+
+<table>
+  <tbody>
+    <tr>
+      <%= render :partial => 'house_menus/templates/house_menu', :object => @house_menu %>
+    </tr>
+  </tbody>
+</table>
+

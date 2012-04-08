@@ -1,0 +1,200 @@
+<% content_for :head do %>
+	<%= javascript_include_tag 'jquery' %>
+	<%= javascript_include_tag 'jquery.preload' %>
+	<%= javascript_include_tag 'jcarousellite' %>
+
+	<script type="text/javascript">
+		function intitializePage()
+		{
+			<% if house.photos.size > 0 then %>
+				 var control = document.getElementById('items');
+				 control.innerHTML = '<% i = 0 %><% for photo in house.photos %><li style="width: 96px; height: 72px;"><center><img style="cursor:pointer;" lowsrc=\'<%= image_path('small_missing.jpg') %>\' id=\'image<%= photo.id %>\' src="<%= photo.photo.url(:thumb) %>" onclick="setImage(<%= i %>); return false;" /></center></li><% i += 1%><% end %>';
+				 $(".carousel").jCarouselLite({
+					 btnNext: '.next',
+				     btnPrev: '.prev',
+					 circular: false,
+					 current: currentImage(),
+					 maxItems: <%= house.photos.size %>,
+		  			 nextStart: function() {
+					 	setImage(ensure(parseInt(currentImage()), 1, this.maxItems))
+						display(currentImage());
+						reload_big_image();
+					 },
+					 prevStart: function() {
+					 	setImage(ensure(parseInt(currentImage()), -1, this.maxItems))
+						display(currentImage());
+						reload_big_image();
+					 }
+				 });
+				$(".carousel").attr("style", $(".carousel").attr("style") + ";width: 405px !important;");
+				reload_big_image();
+				reload_small_image();
+			<% end %>
+		}
+
+		function setImage(index)
+		{
+			$('#current_image').attr("value", index);
+			display(currentImage());
+		}
+
+		function currentImage()
+		{
+			return $('#current_image').attr("value");
+		}
+
+		function ensure(index, value, maxItems)
+		{
+			index = index + value;
+			if (index >= maxItems) {
+				index = maxItems - 1;
+			}
+			else if (index < 0) {
+				index = 0;
+			}
+			return index;
+		}
+
+		function reload_big_image()
+		{
+			$.preload('#big-image-container img', {
+				placeholder:"<%= image_path('big_missing.gif') %>",
+				notFound:"<%= image_path('big_missing.gif') %>"
+			});
+		}
+
+		function reload_small_image()
+		{
+			$.preload('#items img', {
+				placeholder:"<%= image_path('small_missing.gif') %>",
+				notFound:"<%= image_path('small_missing.gif') %>"
+			});
+		}
+
+		function display(index)
+		{
+		 	<% i = 0 %>
+			<% for photo in house.photos %>
+				if (index == <%= i %>)
+				{
+					getContainer().innerHTML = "<center><img src=\'<%= image_path(photo.photo.url(:medium)) %>\' lowsrc=\'<%= image_path('big_missing.jpg') %>\' /></center>";
+					$('#image<%= @house.photos[i].id %>').parent().attr("style", "float: left; height:78px; width:96px;");
+				}
+			<% i += 1 %>
+			<% end %>
+		}
+
+		function getContainer()
+		{
+			return document.getElementById('big-image-container');
+		}
+		$(document).ready(intitializePage);
+	</script>
+<% end %>
+<div id="content-column-1">
+	<div class="sub-content-1">
+		<h1>
+			<%= house_title_link(house) %>
+		</h1>
+		<h3 class="suggestion"><%= house.comment %></h3>
+		<div>
+			<%= house.text %>
+    </div>
+  </div>
+  <div class="sub-content-bottom-menu">
+    <ul>
+      <% house.visible_assets.each do |a| %>
+        <li>
+        <%= link_to a.document_file_name, a.document.url %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+	<div class="sub-content-bottom-menu">
+		<ul>
+			<% for menu in @menus %>
+				<li><a href="<%= menu.link %>"><%= menu.title %> &#187</a></li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="sub-content-back-link">
+		<%= link_to "&#171 в каталог", :controller => :main, :action => :catalog %>
+	</div>
+</div>
+<div id="content-column-2">
+	<% if house.photos.size > 0 then %>
+	<div id="big-image">
+		<% shadow_frame do %>
+			<div id="big-image-container" style="width: 405px; height: 307px;">
+				<center>
+					<img src="<%= house.photos[0].photo.url(:medium) %>">
+				</center>
+			</div>
+		<% end %>
+	</div>
+	<div id="small-big-image">
+		<% shadow_frame do %>
+			<div class="inner-small-image">
+				<div class="carousel">
+			       <ul id="items">
+			       </ul>
+			   </div>
+			</div>
+			<div class="left-button prev"><%= image_tag("left-image-button.png") %></div>
+			<div class="right-button next"><%= image_tag("right-image-button.png") %></div>
+		<% end %>
+	</div>
+	<% end %>
+	<div class="clearer">&nbsp;</div>
+	<div class="prices">
+	  <% if House.is_rent?(params[:house_type]) %>
+		  <table class="prices-table">
+			  <thead>
+				  <tr>
+					  <td class="prices-head-title">ЦЕНЫ В USD</td>
+					  <td>за день</td>
+					  <td>за неделю</td>
+					  <td>за месяц</td>
+				  </tr>
+			  </thead>
+			  <tbody>
+				  <tr class="row-selected">
+					  <td>
+						  <p class="prices-title">Высокий сезон</p>
+						  <p class="prices-comment"><%= house.high_duration_1 %></p>
+						  <p class="prices-comment"><%= house.high_duration_2 %></p>
+					  </td>
+					  <td><%= house.high_cost_day %></td>
+					  <td><%= house.high_cost_week %></td>
+					  <td><%= house.high_cost_month %></td>
+				  </tr>
+				  <tr>
+					  <td>
+						  <p class="prices-title">Низкий сезон</p>
+						  <p class="prices-comment"><%= house.low_duration_1 %></p>
+						  <p class="prices-comment"><%= house.low_duration_2 %></p>
+					  </td>
+					  <td><%= house.low_cost_day %></td>
+					  <td><%= house.low_cost_week %></td>
+					  <td><%= house.low_cost_month %></td>
+				  </tr>
+			  </tbody>
+		  </table>
+		<div class="bottom-text">
+		<div>
+			<%= house.bottom_text %>
+		</div>
+	</div>
+		 <% elsif House.is_sale?(params[:house_type]) %>
+		    Цена: <%= house.total_price %>
+	<div class="bottom-text">
+		<div>
+			<%= house.sale_bottom_text %>
+		</div>
+	</div>
+		 <% end %>
+	</div>
+</div>
+<div class="clearer">&nbsp;</div>
+<input type="hidden" id="current_image" value="0" />
+

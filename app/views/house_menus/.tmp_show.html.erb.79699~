@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @house_menu.title %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%=h @house_menu.link %>
+</p>
+
+
+<%= link_to 'Edit', edit_house_menu_path(@house_menu) %> |
+<%= link_to 'Back', house_menus_path %>

@@ -1,0 +1,9 @@
+<div id="content">
+	<%= render :partial => "house", :object => show_house %>
+	<div style="float: right;">
+		<span style="margin-right: 10px"><%= link_to 'Назад', :controller => :houses, :action => :index %></span>
+		<%= link_to 'Редактировать', edit_house_path(show_house), :style => "PADDING-RIGHT: 10px" %>
+		<%= link_to 'Удалить', show_house, :confirm => 'Вы действительно хотите удалить?', :method => :delete %>
+	</div>
+	<div class="crearer">&nbsp</div>
+</div>

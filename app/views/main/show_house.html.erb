@@ -1,0 +1,9 @@
+<% content_for :meta do %>
+  <%= render :partial => 'templates/meta', :object => @house %>
+<% end %>
+
+<% @page_title = @house.page_title %>
+
+<div id="content">
+  <%= render :partial => "houses/house", :object => @house, :locals => { :menu => @menus }%>
+</div>

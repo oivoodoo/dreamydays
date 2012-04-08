@@ -1,0 +1,11 @@
+<% content_for :top_menu do %>
+  <%= link_to "Добавить", new_main_menu_path %><br />
+  <%= link_to "Назад", main_menus_path %>
+<% end %>
+
+<table>
+  <tbody>
+    <%= render :partial => 'main_menus/templates/main_menu', :object => @main_menu %>
+  </tbody>
+</table>
+

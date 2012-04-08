@@ -1,0 +1,10 @@
+<% content_for :meta do %>
+  <%= render :partial => 'templates/meta', :object => @article %>
+<% end %>
+
+<h2>
+	<%= h @article.title.capitalize %>
+</h2>
+<div>
+	<%= @article.body %>
+</div>

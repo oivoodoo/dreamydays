@@ -1,0 +1,20 @@
+<% content_for :top_menu do %>
+  <%= render :partial => 'articles/templates/top_menu' %>
+  <%= link_to "Назад", articles_path %>
+<% end %>
+
+<table>
+  <tbody>
+    <tr>
+        <td><%=h @article.title %></td>
+        <td><a href="<%= url_for(:controller => :main, :action => :show_article, :id => @article.id) %>"><%= url_for(:only_path => false, :controller => :main, :action => :show_article, :id => @article.id) %></a></td>
+        <td><%= link_to 'Редактировать', edit_article_path(@article) %></td>
+        <td><%= link_to 'Удалить', @article, 
+								:confirm => 'Вы действительно хотите удалить?', 
+								:method => :delete %></td>
+        <td><%= link_to 'Назад', articles_path %></td>
+    </tr>
+    <tr><td colspan="5"><%= @article.body %></td></tr>
+  </tbody>
+</table>
+

@@ -1,0 +1,8 @@
+<%= render :partial => "base_page/templates/top_menu" %>
+
+<h1>Редактировать наши услуги.</h1>
+<% form_for(@services_page, :url => {:action => :update_services_page, :id => @services_page.id}) do |f| %>
+  <%= render :partial => "base_page/form", :locals => {:f => f, :page_name => :services_page, :page_action => :services } %>
+  <%= submit_tag("Обновить") %>
+<% end %>
+

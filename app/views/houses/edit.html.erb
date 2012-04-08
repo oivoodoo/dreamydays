@@ -1,0 +1,12 @@
+<% content_for :top_menu do %>
+  <%= render :partial => 'houses/templates/top_menu' %>
+  <%= link_to "Назад", houses_path %>
+<% end %>
+
+<h1>Редактировать дом.</h1>
+<% form_for(@house, :url => {:controller => :houses, :action => :update, :id => @house.id}, :html => { :multipart => true } ) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "houses/form",  :locals => {:f => f} %>
+  <p><%= submit_tag "Обновить" %></p>
+<% end %>
+

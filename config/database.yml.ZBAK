@@ -1,0 +1,10 @@
+production:
+  adapter: mysql
+  host: baze.dreamydays.ru.postman.ru 
+  port: 64000 
+  timeout: 5000
+  encoding: utf8
+  username: dreamydays_ru 
+  password: oSBPuh64E2 
+  database: dreamydays_ru  
+

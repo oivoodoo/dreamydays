@@ -1,0 +1,170 @@
+8
+
+dir
+0
+file:///F:/rails/vendor/plugins/restful_authentication/generators/authenticated/templates
+file:///F:/rails
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+signup.html.erb
+file
+
+
+
+add
+
+unit_test.rb
+file
+
+
+
+add
+
+helper.rb
+file
+
+
+
+add
+
+authenticated_test_helper.rb
+file
+
+
+
+add
+
+login.html.erb
+file
+
+
+
+add
+
+model_functional_test.rb
+file
+
+
+
+add
+
+controller.rb
+file
+
+
+
+add
+
+signup_notification.html.erb
+file
+
+
+
+add
+
+authenticated_system.rb
+file
+
+
+
+add
+
+observer.rb
+file
+
+
+
+add
+
+unit_spec.rb
+file
+
+
+
+add
+
+migration.rb
+file
+
+
+
+add
+
+model_functional_spec.rb
+file
+
+
+
+add
+
+model_helper.rb
+file
+
+
+
+add
+
+model.rb
+file
+
+
+
+add
+
+functional_test.rb
+file
+
+
+
+add
+
+model_controller.rb
+file
+
+
+
+add
+
+fixtures.yml
+file
+
+
+
+add
+
+mailer_test.rb
+file
+
+
+
+add
+
+mailer.rb
+file
+
+
+
+add
+
+activation.html.erb
+file
+
+
+
+add
+
+functional_spec.rb
+file
+
+
+
+add
+

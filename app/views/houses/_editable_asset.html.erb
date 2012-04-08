@@ -1,0 +1,31 @@
+<% fields_for "house[editable_assets_attributes][]", editable_asset do |editable_photo_form| %>
+	<div class="editable_asset">
+		<table>
+			<tbody>
+				<tr>
+					<% if not editable_asset.new_record? then %>
+						<td>
+							<div style="margin-right: 10px;">
+								<%= editable_asset.document_file_name %>
+                <%= editable_photo_form.check_box :is_visible, :index => nil %><%= editable_photo_form.label :is_visible, "Показывать на странице дома?" %>&nbsp;&nbsp;
+							</div>
+						</td>
+					<% end %>
+					<td>	
+						<div class="editable_photo_file_upload">
+							<% if editable_asset.new_record? then %>
+                <%= editable_photo_form.file_field :document, :index => nil %>&nbsp;
+                <%= editable_photo_form.check_box :is_visible, :index => nil %><%= editable_photo_form.label :is_visible, "Показывать на странице дома?" %>&nbsp;&nbsp;
+								<%= link_to_function "Удалить", "this.up('.editable_asset').remove()" %>
+							<% else %>
+								<%= link_to_function "Удалить", "mark_for_destroy_asset(this)" %>
+								<%= editable_photo_form.hidden_field :id, :value => editable_asset.id, :index => nil %>
+							<% end %>
+							<%= editable_photo_form.hidden_field :should_destroy, :value => "0", :index => nil, :class => "should_destroy" %>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<% end %>

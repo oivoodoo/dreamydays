@@ -1,0 +1,16 @@
+<div id="main">
+	<p>
+		Редактировать:
+	</p>
+	<br />
+	<div>
+		<span style="margin-right: 10px"><%= link_to "главную", :controller => :admin, :action => :edit_main_page %></span>
+		<span style="margin-right: 10px"><%= link_to "контакты", :controller => :admin, :action => :edit_contacts_page %></span>
+		<span style="margin-right: 10px"><%= link_to "наши услуги", :controller => :admin, :action => :edit_services_page %></span>
+		<span style="margin-right: 10px"><%= link_to "о Самуи", :controller => :admin, :action => :edit_about_page %></span>
+		<span style="margin-right: 10px"><%= link_to "путешествия", :controller => :admin, :action => :edit_travelling_page %></span>
+	</div>
+	<div style="margin-top: 20px;">
+		<span style="margin-right: 10px"><%= link_to "На Главную", :controller => :admin, :action => :index %></span>
+	</div>
+</div>

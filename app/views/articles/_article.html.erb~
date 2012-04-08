@@ -1,0 +1,16 @@
+<div>
+	Название статьи:
+	<p>
+		<%= h article.title.capitalize %>
+	</p>
+	<div>
+		<%= article.body %>
+	</div>
+	<div>
+		<%= link_to 'Показать', article %>
+		<%= link_to 'Редактировать', edit_article_path(article) %>
+		<%= link_to 'Удалить', article, 
+								:confirm => 'Вы действительно хотите удалить?', 
+								:method => :delete %>
+	</div>
+</div>

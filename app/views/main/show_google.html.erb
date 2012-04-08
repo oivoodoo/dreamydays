@@ -1,0 +1,14 @@
+<div id="main">
+	<% if @house.google_markers.size > 0 then %>
+		<% content_for :head do %>
+			<%= GMap.header %>
+			<%= @map.to_html %>
+		<% end %>
+		<div id="content">
+			<%= @map.div(:width => 600, :height => 400) %>
+		</div>
+		<%= link_to "Назад", :back %>
+	<% else %>
+		<h2>Дом не может быть найден на карте.</h2>
+	<% end %>
+</div>

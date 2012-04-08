@@ -1,0 +1,12 @@
+<% fields_for "search[price_attributes][]", price do |price_form| %>
+  <div class="price">
+    <%= price_form.text_field :title, :index => nil %>
+    <% if price.new_record? then %>
+      <%= link_to_function "Удалить", "this.up('.price').remove()" %>
+    <% else %>
+      <%= link_to_function "Удалить", "mark_for_destroy_id(this, 'price')" %>
+      <%= price_form.hidden_field :id, :value => price.id, :index => nil %>
+    <% end %>
+    <%= price_form.hidden_field :should_destroy, :value => "0", :index => nil, :class => "should_destroy" %>
+  </div>
+<% end %>

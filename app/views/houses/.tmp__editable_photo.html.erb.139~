@@ -1,0 +1,23 @@
+<div class="editable_photo">
+	<% fields_for "house[photos_attributes][]", editable_photo do |editable_photo_form| %>
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<div style="margin-right: 10px;">
+							<%= image_tag(editable_photo.photo.url(:thumb)) %>
+						</div>
+					</td>
+					<td>	
+						<div class="editable_photo_file_upload">
+							<%= editable_photo_form.file_field :photo, :index => nil %>
+						</div>
+					</td>
+					<td>
+						<%= link_to_function "Удалить", "this.up('.editable_photo').remove()" %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+</div>

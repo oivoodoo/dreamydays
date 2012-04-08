@@ -1,0 +1,23 @@
+<% fields_for "house[google_markers_attributes][]", google_marker do |google_marker_form| %>
+<table>
+	<tbody>
+		<tr>
+		  <td style="padding-right: 5px;">
+		  	<%= google_marker_form.label :title, "Название в google maps." %><br/>
+			<%= google_marker_form.text_field :title, :index => nil %>
+		  </td>
+		  <td style="padding-right: 5px;">
+		  	<%= google_marker_form.label :x, "X маркера" %><br/>
+			<%= google_marker_form.text_field :x, :index => nil %>
+		  </td>
+		  <td style="padding-right: 5px;">
+		  	<%= google_marker_form.label :y, "Y маркера" %><br/>
+			<%= google_marker_form.text_field :y, :index => nil %>
+		  </td>
+		</tr>
+	</tbody>
+</table>
+<% if not google_marker.new_record? then %>
+	<%= google_marker_form.hidden_field :id, :index => nil %>
+<% end %>
+<% end %>

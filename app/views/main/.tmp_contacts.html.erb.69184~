@@ -1,0 +1,11 @@
+<div id="main">
+	<div id="content">
+		<h2><%= h @contacts_page.title %></h2>	
+		<div>
+			<%= @contacts_page.body %>
+		</div>
+		<div>
+			<%= @contacts_page.comment %>
+		</div>
+	</div>
+</div>

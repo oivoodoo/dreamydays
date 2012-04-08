@@ -1,0 +1,33 @@
+<div id="item<%= editable_house.id %>">
+  <table>
+    <tbody>
+      <tr>
+        <td width="125">
+          <%= image_tag('cms_images/apply.gif', :align => "absmiddle", :border => 0) %>
+          <%= link_to editable_house.updated_at.strftime('%D %H:%m'), editable_house %>
+        </td>
+        <td>
+          <%= text_field_tag "group_#{editable_house.id}", editable_house.group_position %>
+        </td>
+        <td width="35%">
+          <%= link_to h(editable_house.title), editable_house %>
+        </td>
+        <td>
+          <%= link_to "Редактировать", edit_house_path(editable_house) %>
+        </td>
+        <td>
+          <%= link_to "Удалить", editable_house, :confirm => "Вы действительно хотите удалить?", :method => :delete %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript">
+  <!--
+    var h = new Array();
+    h.push('group_<%= editable_house.id %>');
+    h.push('<%= editable_house.id %>');
+    houses.push(h);
+  -->
+</script>
+

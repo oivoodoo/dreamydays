@@ -1,0 +1,7 @@
+
+<% content_for :admin_menu do %>
+	<%= render :partial => "admin/menu" %>
+<% end %>
+<div id="main">
+	<%= render :partial => "editable_house", :collection => @houses %>
+</div>

@@ -1,0 +1,14 @@
+<div id="main">
+	<div class="admin-menu-items" style="margin-top: 10px; float:left; margin-right: 20px">
+                <h2><%= link_to "Orders", admin_contacts_path %> 
+		<h2><%= link_to "Дома", :controller => :houses, :action => :index %></h2>
+		<h2><%= link_to "Настроить критерии поиска", edit_search_path(Search.find(:first))%></h2>
+		<h2><%= link_to "Баннеры", :controller => :admin, :action => :banners %></h2>
+		<h2><%= link_to "Добавление страниц", :controller => :articles, :action => :index %></h2>
+		<h2><%= link_to "Редактирование основных страниц", :controller => :admin, :action => :pages %></h2>
+		<h2><%= link_to "Изменить меню", :controller => :admin, :action => :menus %></h2>
+		<h2><%= link_to "Изменить пароль", :controller => :admin, :action => :change_password %></h2>
+	</div>
+	<div class="clearer"></div>	
+</div>
+

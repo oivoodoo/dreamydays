@@ -1,0 +1,13 @@
+<% content_for :top_menu do %>
+  <%= link_to "Добавить", new_main_menu_path %><br />
+  <%= link_to "Назад", :controller => :admin, :action => :index %>
+<% end %>
+
+<% if @main_menus.size > 0 %>
+  <table>
+    <tbody>
+      <%= render :partial => 'main_menus/templates/main_menu', :collection => @main_menus %>
+    </tbody>
+  </table>
+<% end %>
+

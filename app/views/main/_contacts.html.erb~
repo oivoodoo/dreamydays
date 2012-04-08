@@ -1,0 +1,22 @@
+<% content_for :head do %>
+  <%= formtastic_stylesheet_link_tag %>
+  <%= stylesheet_link_tag('contacts') %>
+<% end %>
+
+<% semantic_form_for :contacts, :url => "/send_contacts" do |form| %>
+
+  <% form.inputs do %>
+    <%= form.input :number_adult, :label => "Количество взрослых", :required => false, :input_html => {:size => 10} %>
+    <%= form.input :number_children,  :label => "Количество детей", :required => false, :input_html => {:size => 10} %>
+    <%= form.input :number_bedroom,  :label => "Количество спален", :required => false, :input_html => {:size => 10} %>
+    <%= form.input :date, :label => "Дата поездки", :required => false, :as => :date %>
+    <%= form.input :price, :label => "Цена за один день в USD", :required => false, :input_html => {:size => 10} %>
+    <%= form.input :comments, :label => "Комментарии и пожелания", :as => :text %>
+  <% end %>
+
+  <% form.buttons do %>
+    <%= form.commit_button "Отправить" %>
+  <% end %>
+
+<% end %>
+

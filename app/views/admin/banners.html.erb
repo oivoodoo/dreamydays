@@ -1,0 +1,20 @@
+<div id="main">
+	<div>
+		<span style="margin-right: 10px"><%= link_to "Добавить баннер", :controller => :admin, :action => :add_banner %></span>
+	</div>
+	<div style="margin-top: 20px;">
+		<span style="margin-right: 10px"><%= link_to "На Главную", :controller => :admin, :action => :index %></span>
+	</div>
+	<div>
+		<% for banner in @banners %>
+			<div>
+				<% form_for(banner, :url => {:controller => :admin, :action => :remove_banner, :id => banner.id}) do |f| %>
+					<%= image_tag(banner.banner.url(:thumb)) %>
+					<p>
+						<%= submit_tag "Удалить" %>
+					</p>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<% form_for :query, @query, :url => { :action => :catalog }, :id => "main_form" do |f| %>
+	<p>Поиск по каталогу</p>
+	<div class="search-controls">
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<%= render_search_control_div(f, @search.prices, "cost", 'Cтоимость за день', "search-index-input")%>
+					</td>
+					<td>&nbsp</td>
+				</tr>
+				<tr>
+					<td>
+						<%= render_search_control_div_title(f, @search.locations, "location", 'Расположение', "search-index-input")%>
+					</td>
+					<td>
+						<input type="submit" id="submit-button-hidden" class="hidden" />
+						<span class="search-button">
+								<img src="<%= image_path('search.png') %>" onclick="var form = document.getElementById('submit-button-hidden'); form.click();" style="cursor: pointer;"/> 
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= render_search_control_div_title(f, @search.numbers, "number", 'Количество спален', "search-index-input")%>
+					</td>
+					<td>&nbsp</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<% end -%>

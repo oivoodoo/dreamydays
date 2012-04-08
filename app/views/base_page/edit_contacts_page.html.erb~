@@ -1,0 +1,23 @@
+<% content_for :header do %>
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag :fckeditor %>
+<% end %>
+
+<%= render :partial => "base_page/templates/top_menu" %>
+
+<h1>Редактировать контакты.</h1>
+<% form_for(@contacts_page, :url => {:controller => :base_page, :action => :do_edit_contacts_page, :id => @contacts_page.id}) do |f| %>
+  <p>
+    Ссылка на страницу:
+    <%= link_to "#{url_for( :only_path => false, :controller => :main, :action => :contacts )}", :controller => :main, :action => :contacts %>
+  </p>
+  <p>
+    <%= f.label :title, "Заголовок" %><br />
+    <%= f.text_field :title, :style => "width: 100%" %>
+  </p>
+  <div>
+    <%= fckeditor_textarea("contacts_page", "body", :toolbarSet => 'Simple', :width => '100%', :height => '400px') %>
+  </div>
+  <%= submit_tag("Обновить") %>
+<% end %>
+

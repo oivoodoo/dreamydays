@@ -1,0 +1,22 @@
+<h1>Listing house_menus</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Link</th>
+  </tr>
+
+<% for house_menu in @house_menus %>
+  <tr>
+    <td><%=h house_menu.title %></td>
+    <td><%=h house_menu.link %></td>
+    <td><%= link_to 'Show', house_menu %></td>
+    <td><%= link_to 'Edit', edit_house_menu_path(house_menu) %></td>
+    <td><%= link_to 'Destroy', house_menu, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New house_menu', new_house_menu_path %>

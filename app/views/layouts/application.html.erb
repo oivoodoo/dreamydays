@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>
+      <%= @page_title || @title || "DreamyDays" %>
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <%= yield :meta %>
+    <%= stylesheet_link_tag 'css/main' %>
+    <!--[if lte IE 7]>
+    <%= stylesheet_link_tag 'css/patches/patch_main' %>
+    <![endif]-->
+    <%= yield :head %>
+  </head>
+  <body>
+    <div id="page_margins">
+      <div id="page">
+        <%= render :partial => "templates/header" %>
+        <div id="main">
+          <%= render :partial => "templates/navigation", :locals => { :current_menu => @current_menu, :main_menus => @main_menus } %>
+
+          <%= yield :search %>
+
+          <div class="search">
+            <% form_tag '/search' do %>
+              <%= text_field_tag :query, "поиск", {:onclick => "if (this.getAttribute('value') == 'поиск') this.setAttribute('value', '');"} %>
+              <%= image_submit_tag 'search2.png' %>
+              <div class="clearer">&nbsp;</div>
+            <% end %>
+            <div class="line-content">
+              <div class="custom-line" style="height: 1px;"></div>
+            </div>
+          </div>
+
+          <%= yield %>
+
+          <%= yield :admin %>
+          <div class="clearer">&nbsp;</div>
+        </div>
+        <%= render :partial => "templates/footer" %>
+      </div>
+    </div>
+    <%= google_analytics %>
+    <%= yandex_analytics %>
+  </body>
+</html>

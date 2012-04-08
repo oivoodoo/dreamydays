@@ -1,0 +1,9 @@
+<tr>
+  <td><%=h house_menu.title %></td>
+  <td><%=h house_menu.link %></td>
+  <td><%= h house_menu.position %></td>
+  <td><%= link_to 'Показать', house_menu %></td>
+  <td><%= link_to 'Редактировать', edit_house_menu_path(house_menu) %></span>
+  <td><%= link_to 'Удалить', house_menu, :confirm => 'Вы действительно хотите удалить?', :method => :delete %></td>
+</tr>
+

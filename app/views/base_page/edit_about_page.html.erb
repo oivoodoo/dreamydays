@@ -1,0 +1,8 @@
+<%= render :partial => "base_page/templates/top_menu" %>
+
+<h1>Редактировать о Самуи страницу.</h1>
+<% form_for(@about_page, :url => {:action => :update_about_page, :id => @about_page.id}) do |f| %>
+  <%= render :partial => "base_page/form", :locals => {:f => f, :page_name => :about_page, :page_action => :about } %>
+  <%= submit_tag("Обновить") %>
+<% end %>
+

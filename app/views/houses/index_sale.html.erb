@@ -1,0 +1,59 @@
+<% content_for :top_menu do %>
+  <%= render :partial => 'houses/templates/top_menu' %>
+  <%= link_to "Назад", :controller => :admin, :action => :index %>
+<% end %>
+
+<% content_for :header do %>
+  <%= javascript_include_tag 'prototype.js' %>
+  <script type="text/javascript">
+    function change_position(request) {
+      object = request.responseText.evalJSON();
+      if (object["result"] == null) {
+        swap(object["item1"]["id"], object["item2"]["id"]);
+      }
+    }
+
+    function swap(id1, id2) {
+      var container1 = document.getElementById("item" + id1);
+      var container2 = document.getElementById("item" + id2);
+      var html = container1.innerHTML;
+      container1.innerHTML = container2.innerHTML;
+      container2.innerHTML = html;
+      container1.id = "item" + id2;
+      container2.id = "item" + id1;
+    }
+
+    var houses = new Array();
+
+    function save_positions() {
+      var values = new Array();
+      for(var i = 0; i < houses.length; i++) {
+        var value = $(houses[i][0]).getValue();
+        values.push({'id': houses[i][1], 'value': value})
+      }
+      new Ajax.Request('/houses/update_positions',
+			  {evalScripts: true,
+			   parameters: {values: values.toJSON(), page: <%= params[:page].to_i %>},
+			   asynchronous: true,
+			   onComplete: function(request) {
+			   	 new Ajax.Updater('sale', '/houses/update_container', {
+              parameters: {page: <%= params[:page].to_i %>, house_type: 'sale'}
+			   	 });
+			   }
+			  });
+  		return false;
+    }
+  </script>
+<% end %>
+
+<div id="container">
+  <h1>Дома для продажи</h1>
+  <div id="sale">
+    <%= render :partial => "editable_house", :collection => @houses_sale, :locals => {:house_type => "sale"} %>
+  </div>
+  <%= will_paginate @houses_sale %>
+</div>
+
+<p>
+  <%= button_to_function "Сохранить Позиции", "save_positions();" %>
+</p>

@@ -1,0 +1,9 @@
+<h3>Данные со страницы контакты:</h3>
+<br />
+<p>Количество взрослых: <%= order[:number_adult] %></p>
+<p>Количество детей: <%= order[:number_children] %></p>
+<p>Количество спален: <%= order[:number_bedroom] %></p>
+<p>Дата поездки: <%= order[:date] %></p>
+<p>Цена за один день в USD: <%= order[:price] %></p>
+<p>Комментарии: <%= order[:comments] %></p>
+

@@ -1,0 +1,5 @@
+<div id="main">
+  <div id="content">
+    <%= render :partial => "houses/house", :object => @house, :locals => { :menu => @menus }%>
+  </div>
+</div>

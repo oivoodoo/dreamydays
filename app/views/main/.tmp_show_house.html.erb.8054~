@@ -1,0 +1,12 @@
+<div id="main">
+	<div class="breadcrumbs">
+		<p>
+			<%= link_to "<< в каталог", :controller => :main, :action => :catalog %>
+			<span class="delimeter">|</span>
+			<span><%= @house.catalog_title %></span>
+		</p>
+	</div>
+	<div id="content">
+		<%= render :partial => "houses/house", :object => @house, :locals => { :menu => @menus }%>
+	</div>
+</div>

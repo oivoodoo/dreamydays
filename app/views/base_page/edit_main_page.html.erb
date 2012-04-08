@@ -1,0 +1,8 @@
+<%= render :partial => "base_page/templates/top_menu" %>
+
+<h1>Редактировать главную страницу.</h1>
+<% form_for(@main_page, :url => {:action => :update_main_page, :id => @main_page.id}) do |f| %>
+  <%= render :partial => "base_page/form", :locals => {:f => f, :page_name => :main_page, :page_action => :index } %>
+  <%= submit_tag("Обновить") %>
+<% end %>
+

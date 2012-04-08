@@ -1,0 +1,18 @@
+<div id="banner-image">
+	<% banner = Banner.find(:last)%>
+	<% if not banner.nil? then %>
+		<a href="<%= banner.url %>">
+			<img src="<%= Banner.find(:last).banner.url(:medium) %>" />
+		</a>
+	<% end %>
+</div>
+<div id="footer" style="width: 100%">
+	<div class="footer-left" style="width: 50%">
+		<a href="http://dreamydays.ru">© 2009 dreamydays.ru</a>
+	</div>	
+	<div class="footer-right" style="width: 18%">
+		<p>сделано в <a href="http://365degrees.ru">365degrees</a></p>
+		<p style="margin-right: 24px !important;" class="footer-bottom-label">сделано с любовью</p>
+	</div>
+	<div class="clearer">&nbsp</div>
+</div>

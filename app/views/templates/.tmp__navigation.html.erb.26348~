@@ -1,0 +1,13 @@
+<div id="nav"> 
+	<a id="navigation" name="navigation"></a>
+	<div id="nav_main">
+		<ul>
+			<% for i in 0...main_menus.size %>
+				<li "<%= if current_menu == i then 'id = \'current\'' end %>">
+					<a href="<%= h main_menus[i].link %>"><%= h main_menus[i].title %></a>
+				</li>
+			<% end  %>
+		</ul>
+	</div>
+	<div class="clearer"></div>
+</div>

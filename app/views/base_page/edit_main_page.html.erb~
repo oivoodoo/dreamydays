@@ -1,0 +1,23 @@
+<% content_for :header do %>
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag :fckeditor %>
+<% end %>
+
+<%= render :partial => "base_page/templates/top_menu" %>
+
+<h1>Редактировать главную страницу.</h1>
+<% form_for(@main_page, :url => {:controller => :base_page, :action => :do_edit_main_page, :id => @main_page.id}) do |f| %>
+  <p>
+    Ссылка на страницу:
+    <%= link_to "#{url_for( :only_path => false, :controller => :main, :action => :index )}", :controller => :main, :action => :index %>
+  </p>
+  <p>
+    <%= f.label :title, "Заголовок" %><br />
+    <%= f.text_field :title, :style => "width: 100%" %>
+  </p>
+  <div>
+    <%= fckeditor_textarea("main_page", "body", :toolbarSet => 'Simple', :width => '100%', :height => '400px') %>
+  </div>
+  <%= submit_tag("Обновить") %>
+<% end %>
+

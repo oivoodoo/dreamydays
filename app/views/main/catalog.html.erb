@@ -1,0 +1,38 @@
+<% content_for :meta do %>
+  <%= render :partial => 'templates/meta', :object => @catalog_page %>
+<% end %>
+
+<% content_for :search do %>
+  <div class='search'>
+    <% form_for :query, @query, :url => { :action => action_name }, :id => "main_form" do |f| %>
+      <p class="main-header">Поиск по каталогу</p>
+      <div class="search-controls">
+        <span class="forselect search-select">
+          <%= render_search_control(f, @search.prices, "cost", 'Cтоимость за день', "search-catalog-input")%>
+        </span>
+        <span class="forselect search-select">
+          <%= render_search_control_div_title(f, @search.locations, "location", 'Расположение', "search-catalog-input")%>
+        </span>
+        <span class="forselect search-select">
+          <%= render_search_control_div_title(f, @search.numbers, "number", 'Количество спален', "search-catalog-input")%>
+        </span>
+        <span class="search-top-button">
+          <input type="submit" id="submit-button-hidden" class="hidden" />
+          <span>
+            <img src="<%= image_path('search2.png') %>" onclick="var form = document.getElementById('submit-button-hidden'); form.click();" style="cursor: pointer;"/>
+          </span>
+        </span>
+        <span class="search-comment">
+        </span>
+      </div>
+    <% end %>
+    <div class="line-content">
+      <div class="custom-line" style="height: 1px;"></div>
+    </div>
+  </div>
+<% end %>
+
+<%= render :partial => "catalog", :locals => {:action_name => 'catalog', 
+                                              :all_link => "Все предложения по аренде на острове Самуи", 
+                                              :page => @catalog_page, 
+                                              :house_type => "rent"} %>

@@ -1,0 +1,5 @@
+<% fields_for "house[photos_attributes][]", photo do |photo_form| %>
+	<div class="photo_file_upload">
+		<%= photo_form.file_field :photo %>
+	</div>
+<% end %>

@@ -1,0 +1,9 @@
+<div id="content">
+	<%= render :partial => "index_house", :object => editable_house, :locals => {:house => editable_house} %>
+	<p style="float: right;">
+		<%= link_to 'Показать', editable_house, :style => "padding-right: 10px;" %>
+		<%= link_to 'Редактировать', edit_house_path(editable_house), :style => "PADDING-RIGHT: 10px" %>
+		<%= link_to 'Удалить', editable_house, :confirm => 'Вы действительно хотите удалить?', :method => :delete %>
+	</p>
+	<div class="clearer"></div>
+</div>
