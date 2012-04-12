@@ -1,24 +1,16 @@
-default_run_options[:pty] = true
-set :application, "dreamydays"
-set :repository,  "hosting_inshalla@hydrogen.locum.ru:~/projects/src/dreamydays"
-set :scm, "git"
-set :scm_passphrase, ""
-set :user, "hosting_inshalla"
+set :application, "dreamydays.ru"
+set :repository,  "git@github.com:oivoodoo/dreamydays.git"
+set :user, "rails"
+set :scm, :git
 set :branch, "master"
-set :deploy_to, "~/projects/dreamydays"
-set :thin_conf, "#{deploy_to}/thin.yml"
+role :web, "176.58.96.250"
+role :app, "176.58.96.250"
 
-role :web, "hydrogen.locum.ru"
+default_run_options[:pty] = true
+set :deploy_to, "~/dreamydays.ru/"
 
-namespace :deploy do
-  task:start do
-    run "thin -C #{thin_conf} start"
-  end
-  task:stop do
-    run "thin -C #{thin_conf} stop"
-  end
-  task :restart do
-    run "thin -C #{thin_conf} restart"
-  end
+after 'deploy' do
+  run <<-CMD
+    ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml
+  CMD
 end
-
