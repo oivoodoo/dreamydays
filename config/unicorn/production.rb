@@ -7,7 +7,7 @@ timeout 30
 
 listen "/home/rails/dreamydays.ru/shared/tmp/sockets/unicorn.sock", :backlog => 64
 
-pid "/home/rails/promist.ru/shared/tmp/pids/unicorn.pid"
+pid "/home/rails/dreamydays.ru/shared/tmp/pids/unicorn.pid"
 
 stderr_path "/home/rails/dreamydays.ru/shared/log/unicorn.stderr.log"
 stdout_path "/home/rails/dreamydays.ru/shared/log/unicorn.stdout.log"
