@@ -1,7 +1,7 @@
 # Don't change this file!
 # Configure your app in config/environment.rb and config/environments/*.rb
-
 require 'thread'
+require File.join(File.dirname(__FILE__), 'boot')
 RAILS_ROOT = "#{File.dirname(__FILE__)}/.." unless defined?(RAILS_ROOT)
 
 module Rails
@@ -45,6 +45,7 @@ module Rails
     def load_initializer
       require "#{RAILS_ROOT}/vendor/rails/railties/lib/initializer"
       Rails::Initializer.run(:install_gem_spec_stubs)
+      Rails::GemDependency.add_frozen_gem_path
     end
   end
 
