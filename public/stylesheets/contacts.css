@@ -1,0 +1,25 @@
+.contacts_container > legend > span {font-size: 16px;text-align:center;}
+#contacts {width: 600px; margin-top: 40px;}
+form.formtastic fieldset ol li.string input {width: 50% !important;}
+form.formtastic fieldset ol li fieldset ol {
+float:left;
+margin:0;
+padding:0 0 0 200px;
+width:74%;
+}
+form.formtastic fieldset ol li label {
+display:block;
+float:left;
+padding-top:0.2em;
+width:200px;
+}
+form.formtastic fieldset ol li.text textarea {
+width:84%;
+}
+form.formtastic fieldset.buttons {
+padding-left:0 !important;
+}
+input[type="submit"] {
+padding:2px;
+}
+#contacts_submit {padding:2px}

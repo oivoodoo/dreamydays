@@ -1,0 +1,70 @@
+@charset "UTF-8";
+@media all
+{
+  #nav_main {
+    background: transparent url("images/sliding_door/round/bg.gif") repeat-x bottom;
+    float: left;
+    width: 100%;
+  }
+
+  #nav_main ul {
+    line-height: 1em;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 50px;
+    white-space: nowrap;
+  }
+
+  #nav_main li {
+    background: #e0ecf8 url("images/sliding_door/round/left.gif") no-repeat top left;
+    border-bottom: 1px solid #000;
+    float: left;
+    margin: 0;
+    padding: 0 0 0 3px;
+  }
+
+  #nav_main a,
+  #nav_main strong {
+    background: transparent url("images/sliding_door/round/right.gif") no-repeat top right;
+    color: #667;
+    display: block;
+    font-weight: normal;
+    padding: 5px 11px 3px 8px;
+    text-decoration: none;
+    text-transform: none;
+    width: auto; /* only IE 5.x */
+    width/**/:/**/ .1em; /* only IE 6.0 */
+  }
+
+  #nav_main > ul a,
+  #nav_main > ul strong { width: auto; }  /* for other browsers */
+
+  #nav_main ul li:focus,
+  #nav_main ul li:hover,
+  #nav_main ul li:active {
+    background-color: #c4d0dc;
+    background-position: 0 -150px;
+  }
+
+  #nav_main li:focus a,
+  #nav_main li:hover a,
+  #nav_main li:active a { background-position: 100% -150px; }
+
+  #nav_main a:focus,
+  #nav_main a:hover,
+  #nav_main a:active { background-color: transparent; color: #223; }
+
+  #nav_main #current {
+    background: white url("images/sliding_door/round/left_on.gif") no-repeat top left;
+    border: 0;
+  }
+
+  #nav_main #current a,
+  #nav_main #current strong {
+    background: transparent url("images/sliding_door/round/right_on.gif") no-repeat top right;
+    color: #334;
+    font-weight: bold;
+    padding-bottom: 4px;
+    padding-top: 5px;
+  }
+}

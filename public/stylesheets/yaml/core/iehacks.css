@@ -1,0 +1,133 @@
+@charset "UTF-8";
+@media all
+{
+  html { height: auto; margin-bottom:0; }
+
+  * html textarea { overflow:scroll; overflow-x: hidden; }
+  * html input { overflow: hidden; }
+  
+  body { position:relative; }  /* Essential in IE7 for correct layout scaling ... */
+  * html body { position:static; }  /* ... but not for IE5.x and IE6 */
+  #main { position: relative; } /* helpful for several problems in older IE versions*/
+
+  .clearfix { display: inline-block; }  /* ... especial for IE7 */
+  .clearfix { display: block; }      /* ... für IE5,IE6,IE7 */
+  * html .clearfix { height: 1%; }   /* ... für IE5 + IE6/Win | hasLayout aktivieren */
+
+ 
+  * html .floatbox { width:100%; }
+  
+   
+  .slidebox {
+    position:relative;
+    margin-right: -1000px;
+    height: 1%;
+  }
+
+ 
+  * html #col1,
+  * html #col2, 
+  * html #col3 { position:relative; } 
+
+   body { height: 1%; }
+  #page_margins, #page, #header, #nav, #main, #footer { zoom:1; }             /* IE6 & IE7    */
+  #page_margins, #page { height: 1%; }                                        /* IE 5.x       */
+  * html #header, * html #nav, * html #main, * html #footer { width: 100%; }  /* IE 5.x & IE6 */
+  * html #header, * html #nav, * html #main, * html #footer { wid\th: auto; } /* IE 6         */
+
+   * html ul, * html ol, * html dl { position: relative; }
+
+   body ol li { display:list-item; }
+  
+   #ie_clearing {
+    position:static;
+    display:block;
+    \clear:both;
+
+    width: 100%;
+    font-size:0px;
+    margin: -2px 0 -1em 1px;
+  }
+
+  * html #ie_clearing { margin: -2px 0 -1em 0; }
+  #col3_content {margin-bottom:-2px; }
+
+  html { margin-right: 1px; }
+  * html { margin-right: 0 }
+
+
+  /* (en) Bugfix: Essential for IE7 */
+  /* (de) Bugfix: Notwendig im IE7 */
+  #col3 { position:relative; z-index: -1; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * IE/Win Guillotine Bug
+   * @see        http://www.positioniseverything.net/explorer/guillotine.html
+   *
+   * @workaround
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6
+   * @valid      yes
+   */
+
+  * html body a, * html body a:hover { background-color: transparent; }
+
+}
+
+@media screen, projection
+{
+  /**
+   * (en) IE-Adjustments for content columns and subtemplates
+   * (de) IE-Anpassung für Spaltencontainer und Subtemplates
+   *
+   * Doubled Float-Margin Bug
+   * @see        http://positioniseverything.net/explorer/doubled-margin.html
+   *
+   * @bugfix
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      yes
+   */
+
+  #col1,  #col2 { display:inline; }
+
+  .c50l, .c25l, .c33l, .c38l, .c66l, .c75l, .c62l,
+  .c50r, .c25r, .c33r, .c38r, .c66r, .c75r, .c62r { display:inline; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * Internet Explorer and the Expanding Box Problem
+   * @see http://www.positioniseverything.net/explorer/expandingboxbug.html
+   *
+   * @workaround
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6
+   * @valid      yes
+   */
+
+  * html #col1_content, 
+  * html #col2_content, 
+  * html #col3_content { word-wrap: break-word; }
+
+  * html .subcolumns .subc,
+  * html .subcolumns .subcl,
+  * html .subcolumns .subcr { word-wrap: break-word; overflow:hidden; }
+}
+
+@media print
+{
+  /**
+   * (en) Avoid unneeded page breaks of #col3 content in print layout.
+   * (de) Vermeiden von unnötigen Seitenumbrüchen beim Ausdruck der Spalte #col3.
+   *
+   * @bugfix
+   * @affected   IE7
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      yes
+   */
+
+  #col3 { height: 1%; }
+}

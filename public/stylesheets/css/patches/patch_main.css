@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@import url(../../yaml/core/iehacks.css);
+
+@media screen, projection
+{
+  * html #col3 { height: 1%; }
+  * html #col1 {margin-right: -3px;}
+  * html #col2 {margin-left: -3px;}
+  * html #col3 { margin-left: 24%; margin-right: 24%; }
+
+  * html #page_margins {
+    width: 80em;
+	width: expression((document.documentElement && document.documentElement.clientHeight) ? ((document.documentElement.clientWidth < 740) ? "740px" : ((document.documentElement.clientWidth > (80 * 16 * (parseInt(this.parentNode.currentStyle.fontSize) / 100))) ? "80em" : "auto" )) : ((document.body.clientWidth < 740) ? "740px" : ((document.body.clientWidth > (80 * 16 * (parseInt(this.parentNode.currentStyle.fontSize) / 100))) ? "80em" : "auto" )));
+  }
+  
+  .top-button-0, .top-button-1, .top-button-2, .top-button-3, .top-button-4, .top-button-5
+  {
+  	top: -9px! important
+  }
+  
+  .search-button
+  {
+  	position: relative;
+  }
+
+  #header 
+  {
+   	margin-bottom: 0px;
+  }
+}

@@ -1,0 +1,90 @@
+@charset "UTF-8";
+@media all {
+body {
+    background: #FFFFFF url("images/bg_blue.gif") repeat-x top left fixed;
+    padding: 10px 0;
+} #page_margins {
+  min-width:   740px;
+  max-width: 80em;
+  margin: 0 auto;
+  border: 0px #889 solid;
+} #page {
+  width: 1000px;
+} body {
+  text-align: center
+} #page_margins {
+  text-align: left;
+  max-width:980px;
+  min-width:980px;
+} #header {
+  color: #000;
+  padding: 25px 2em 1em 20px;
+  margin-bottom: 10px;
+} #topnav {
+  color: #aaa;
+  background: transparent;
+  margin-top: 0px;
+} #nav ul {
+  margin-left: 20px;
+} #nav_main {
+  background-color: #336
+} #main {
+  background: #fff;
+  padding: 20px;
+  min-height: 600px;
+} #footer {
+  color: #666;
+  padding: 15px;
+  padding-top: 40px;
+  padding-bottom: 15px;
+} #col1 {
+  width: 25%
+} #col1_content {
+  padding: 10px 10px 10px 20px;
+} #col2 {
+  width: 25%
+} #col2_content {
+  padding: 10px 20px 10px 10px;
+} #col3 {
+  margin: 0 25%
+} #col3_content {
+  padding: 10px
+} #nav * {
+  border: 0px none !important
+} #nav_main {
+  background: #efefef
+} #nav_main ul {
+  margin-left: 10px
+} #nav_main ul li {
+  line-height: 1.2em
+} #nav_main ul li a, #nav_main ul li strong {
+  color: #666;
+  font-weight: normal;
+  padding: 0.5em 0.8em 0.5em 0.8em;
+} #nav_main ul li a:focus, #nav_main ul li a:hover, #nav_main ul li a:active {
+  background: #182E7A;
+  color: #fff
+} #nav_main ul li#current {
+  background: transparent
+} #nav_main ul li#current strong, #nav_main ul li#current a, #nav_main ul li#current a:focus, #nav_main ul li#current a:hover, #nav_main ul li#current a:active {
+  color: #4D87C7;
+  font-weight: bold
+} #content {
+  width: 100%;
+  margin-bottom: 30px;
+} #content #content-column-1 {
+  float: left;
+  width: 48%;
+} #content #content-column-2 {
+  float: right;
+  width: 473px;
+} .clearer {
+  clear: both;
+} .footer-left {
+  float: left;	
+} .footer-right {
+  float: right;	
+} .footer-bottom-label {
+  text-align:right;
+}
+}

@@ -1,0 +1,104 @@
+HTLM, BODY { 
+border : 0;
+margin : 4px;
+padding : 0;
+} 
+IMG { 
+border : 0;
+} 
+FORM { 
+margin : 0;
+padding : 0;
+display : inline;
+} 
+TABLE, TR, TD, DIV, INPUT, SELECT, TEXTAREA { 
+font-family : verdana, helvetica, sans-serif;
+font-size : 11px;
+}
+TABLE {
+width: 100%;
+}
+TABLE, TR, TD, DIV, TEXTAREA { 
+line-height : 17px;
+} 
+TABLE, TR, TD, DIV { 
+vertical-align : top;
+} 
+TD { 
+background-color : #f9fbfc;
+border : 1px solid #eef3f7;
+} 
+#white { 
+background-color : #ffffff;
+border : 0;
+} 
+SELECT, INPUT.pole, TEXTAREA { 
+background-color : #fcfcfc;
+border : 1px solid #a4b8d3;
+} 
+INPUT.button { 
+background-color : #eef3f7;
+border : 1px solid #a4b8d3;
+} 
+A:link, A:active, A:visited { 
+color : #004f98;
+text-decoration : none;
+} 
+A:hover { 
+color : #000000;
+text-decoration : underline;
+} 
+#cms_line { 
+background-color : #eef3f7;
+border : 1px solid #a4b8d3;
+clear : both;
+font-weight : bold;
+text-align : center;
+padding : 5px 0 5px 0;
+} 
+#cms_nav { 
+background-color : #eef3f7;
+border : 1px solid #a4b8d3;
+clear : both;
+font-weight : bold;
+margin : 5px 0 0 0;
+padding : 5px;
+} 
+#cms_text { 
+clear : both;
+padding : 2px 2px 2px 2px;
+} 
+#cms_menu_hover a, #cms_menu_hover a:hover, #cms_menu a, #cms_menu a:hover { 
+border : 1px solid #dddddd;
+display : block;
+float : left;
+margin : 5px 2px 0 0;
+padding : 2px 5px 2px 5px;
+text-decoration : none;
+width : 190px;
+} 
+#cms_page_hover a, #cms_page_hover a:hover, #cms_page a, #cms_page a:hover { 
+border : 1px solid #dddddd;
+display : block;
+float : left;
+margin : 5px 4px 5px 0;
+padding : 0 5px 0 5px;
+text-decoration : none;
+} 
+#cms_menu a, #cms_page a { 
+color : #1a5e97;
+background : #ffffff;
+} 
+#cms_menu a:hover, #cms_menu_hover a, #cms_menu_hover a:hover, #cms_page a:hover, #cms_page_hover a, #cms_page_hover a:hover { 
+color : #000000;
+background : #eef3f7;
+}
+em.quote { 
+background-color : #ffffff;
+border : 1px solid #eef3f7;
+display : block;
+font : normal 100% verdana, helvetica, sans-serif;
+line-height : 17px;
+padding : 5px;
+margin : 5px 5px 5px 10px;
+}
